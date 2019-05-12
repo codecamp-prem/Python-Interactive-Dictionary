@@ -8,10 +8,7 @@ def get_case_insensitive_key_value(input_dict, key):
     return next((value for dict_key, value in input_dict.items() if dict_key.lower() == key.lower()), None)
 
 def translate(word):
-    word = word.lower();
-    if word in data:
-        return data[word]
-    elif get_case_insensitive_key_value(data, word):
+    if get_case_insensitive_key_value(data, word):
         return get_case_insensitive_key_value(data, word)
     elif len(get_close_matches(word, data.keys())) > 0:
         closeMatch = get_close_matches(word, data.keys())
